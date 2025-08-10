@@ -1,0 +1,22 @@
+#include <stdio.h>
+int main()
+{
+    printf("Enter a number\n");
+    int n,a=0,x=0,s=0,j=0;
+    scanf("%d", &n);
+    j=n;
+    while(n>0)
+    {
+        a=n%10;
+        n=n/10;
+        x=a*a*a;
+        s=s+x;
+    }
+    if(s==j)
+    {
+        printf("%d is an armstrong number", j);  
+    }
+    else 
+    {
+        printf("%d is not an armstrong number", j);
+    }

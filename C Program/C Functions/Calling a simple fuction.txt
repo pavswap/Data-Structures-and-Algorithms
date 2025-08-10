@@ -1,0 +1,9 @@
+#include<stdio.h>
+void func()
+{
+    printf("Here here\n");
+}
+void main()
+{
+    func();
+}

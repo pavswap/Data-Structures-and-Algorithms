@@ -1,0 +1,15 @@
+#include<stdio.h>
+void func()
+{
+    printf("Here here\n");
+}
+void function1()
+{
+    printf("Ara Ara\n\n\n");
+}
+void main()
+{
+    func();
+    function1();
+    function1();
+}

@@ -1,0 +1,24 @@
+#include<stdio.h>
+#include<math.h>
+int main()
+{
+    printf("Enter the last (nth) Element\n");
+    int n;
+    float f=1;
+    scanf("%d", &n);
+    printf("Enter the value of x\n");
+    int x;
+    scanf("%d", &x);
+    float s=0;
+    for(int i=1;i<=n;i++)
+    {
+        f=f*i;
+       if(i%2==0)
+       {
+        float element= pow(x,i)/f;
+        printf("X^%d/%d! = %.6f \n", i, i, element);
+        s=s+element;
+       }
+    }
+    printf("\n\nSum : %.6f ", 1-s);
+}

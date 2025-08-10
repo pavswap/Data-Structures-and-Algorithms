@@ -1,0 +1,45 @@
+#include <stdio.h>
+ int main()
+ {
+    printf("Enter the Numbers of Rows for the 2 Matrice\n");
+    int r;
+    scanf("%d", &r);
+    printf("Enter the Numbers of Colums for the 2 Matrice\n");
+    int c;
+    scanf("%d", &c);
+    int mat[r][c];
+    for(int i=0;i<r;i++)
+    {
+        for(int j=0;j<c;j++)
+        {
+            printf("Enter Value int the first matrice for position [%d][%d] :", i, j);
+            scanf("%d", &mat[i][j]);
+        }
+    }
+    int mat2[r][c];
+    for(int i=0;i<r;i++)
+    {
+        for(int j=0;j<c;j++)
+        {
+            printf("Enter Value int the second matrice for position [%d][%d] :", i, j);
+            scanf("%d", &mat2[i][j]);
+        }
+    }
+    int sum[r][c];
+    for(int i=0;i<r;i++)
+    {
+        for(int j=0;j<c;j++)
+        {
+            sum[i][j]=mat[i][j] + mat2[i][j];
+        }
+    }
+    for(int i=0;i<r;i++)
+    {
+        printf("\n");
+        for(int j=0;j<c;j++)
+        {
+            printf("%d ", sum[i][j]);
+        }
+    }
+
+ }
