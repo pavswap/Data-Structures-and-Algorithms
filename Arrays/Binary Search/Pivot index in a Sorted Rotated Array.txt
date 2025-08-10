@@ -1,0 +1,42 @@
+import java.util.*;
+class Practice {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter a Sorted Rotated Array : ");
+        int[] ar = Input.input(sc.nextLine());
+
+        int pivot = findPivot(ar);
+        System.out.println(pivot);
+    }
+    public static int findPivot(int[] ar) {
+
+        int start = 0, end = ar.length, middle;
+
+        if(ar[end - 1] > ar[0]) {
+
+            System.out.println("Array Not rotated");
+            return end - 1;
+        }
+        while(start <= end) {
+
+            middle = (start + end) / 2;
+
+            if(ar[middle] > ar[middle + 1]) {
+
+                return middle;
+            }
+            else if(ar[middle] < ar[middle + 1] && ar[middle] < ar[0]) {
+
+                end = middle - 1;
+            }
+            else if(ar[middle] < ar[middle + 1] && ar[middle] > ar[0]) {
+
+                start = middle + 1;
+            }
+        }
+        return -1;
+    }
+}

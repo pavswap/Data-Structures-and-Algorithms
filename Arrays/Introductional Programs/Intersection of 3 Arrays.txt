@@ -1,0 +1,69 @@
+import java.util.*;
+class Practice {
+
+    static Scanner sc = new Scanner(System.in);
+    public static void main(String[] args) {
+
+        System.out.print("Enter the Array-Size :");
+        int n = sc.nextInt();
+
+        int ar[] = new int[n];
+        for(int i= 0 ; i < n ; i++) {
+
+            ar[i] = sc.nextInt();
+        }
+
+        System.out.print("Enter the 2nd Array-Size :");
+        int n2 = sc.nextInt();
+
+        int ar2[] = new int[n2];
+        for(int i= 0 ; i < n2 ; i++) {
+
+            ar2[i] = sc.nextInt();
+        }
+
+        System.out.print("Enter the 3rd Array-Size :");
+        int n3 = sc.nextInt();
+
+        int ar3[] = new int[n3];
+        for(int i= 0 ; i < n3 ; i++) {
+
+            ar3[i] = sc.nextInt();
+        }
+
+        int var[] = new int[n];
+        int m = 0;
+        for (int i = 0; i < n; i++) {
+
+            for (int j = 0; j < n; j++) {
+
+                if (ar[i] == ar2[j]) {
+
+                    var[m] = ar[i];
+                    m++;
+                }
+            }
+        }
+
+        int var2[] = new int[n];
+        int l = 0;
+        for (int i = 0; i < n; i++) {
+
+            for (int j = 0; j < n; j++) {
+
+                if (var[i] == ar3[j]) {
+
+                    var2[l] = var[i];
+                    l++;
+                }
+            }
+        }
+
+        for (int i = 0; i < n; i++) {
+
+            if(var2[i] != 0) {
+                System.out.println(var2[i]);
+            }
+        }
+    }
+}

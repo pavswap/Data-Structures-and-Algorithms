@@ -1,0 +1,110 @@
+import java.util.*;
+
+class Practice extends Input {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        Practice in = new Practice();
+
+        System.out.print("Enter a Array : ");
+        int ar[] = in.input(sc.nextLine());
+
+        System.out.print("Enter Search Value : ");
+        int sv = sc.nextInt();
+
+        Arrays.sort(ar);
+
+        int k = Arrays.binarySearch(ar, sv);
+
+        if(k == -1) {
+            System.out.println("The Element is Not Present");
+        }
+        else {
+            findIndex(ar, k);
+        }
+    }
+    static void findIndex(int ar[], int k) {
+        int m = 0, n = 0, k1= k, k2 = k;
+
+        while(k1 < ar.length - 1 && ar[k1] == ar[k1 + 1]) {
+            k1++;
+            m++;
+        }
+
+        while(k2 > 0 && ar[k2] == ar[k2 - 1]) {
+            k2--;
+            n++;
+        }
+
+        System.out.printf("The Starting Index is %d \n", k - n);
+        System.out.printf("The Ending Index is %d \n", k + m);
+    }
+}
+
+
+
+// Better Version -- 
+
+import java.util.*;
+
+class Practice extends Input {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        Practice in = new Practice(); // Defined In Class Input(File Name : Input.java)
+
+        System.out.print("Enter an Array : ");
+        int ar[] = in.input(sc.nextLine());
+
+        System.out.print("Enter the Target Element : ");
+        int target = sc.nextInt();
+
+        binsearchStart(ar, target);
+
+        binsearchEnd(ar, target);
+    }
+    static void binsearchStart(int ar[], int target) {
+
+        int start = 0, end = ar.length - 1, middle = 0, answer = 0;
+        while(start <= end) {
+
+            middle = (start + end) / 2;
+            if(ar[middle] == target) {
+
+                answer = middle;
+                end = middle - 1;
+            }
+            else if(ar[middle] > target) {
+
+                end = middle - 1;
+            }
+            else {
+                start = middle + 1;
+            }
+
+        }
+        System.out.println("Start : " + answer);
+    }
+    static void binsearchEnd(int ar[], int target) {
+
+        int start = 0, end = ar.length - 1, middle = 0, answer = 0;
+        while(start <= end) {
+
+            middle = (start + end) / 2;
+            if(ar[middle] == target) {
+
+                answer = middle;
+                start = middle + 1;
+            }
+            else if(ar[middle] > target) {
+
+                end = middle - 1;
+            }
+            else {
+                start = middle + 1;
+            }
+
+        }
+        System.out.println("End : " + answer);
+    }
+}

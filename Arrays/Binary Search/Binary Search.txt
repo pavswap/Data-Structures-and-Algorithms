@@ -1,0 +1,48 @@
+import java.util.*;
+class bum {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);     // Scanner Class For User Input with sc as Object
+        System.out.print("Enter a elements in the Array : ");
+        int n = sc.nextInt();
+        int ar[] = new int[n];
+        System.out.print("Enter thr Search Element : ");
+        int sv=sc.nextInt();
+        System.out.printf("Enter Values from %dth index to %dth index\n",0,n-1);
+        for(int i=0;i<n;i++) {
+            ar[i] = sc.nextInt();
+        }
+
+        Arrays.sort(ar);
+
+        binarysearchmethod(n,ar, sv);
+    }
+
+    static void binarysearchmethod(int n, int ar[], int sv) {
+
+        int start=0;
+        int last=ar.length-1;
+        int middle=0; boolean flag = false;
+
+        while (start <= last) {
+
+            middle = start+(last-start)/2;
+
+            if(sv == ar[middle]) {
+                System.out.println("Element is Present");
+                flag = true;
+                break;
+            }
+            else if(ar[middle] < sv) {
+                start = middle + 1;
+            }
+            else {
+                last=middle - 1;
+            }
+        }
+        if(!flag) {
+            System.out.println("Element Not Present");
+        }
+    }
+}

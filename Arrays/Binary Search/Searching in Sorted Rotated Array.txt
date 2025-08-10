@@ -1,0 +1,60 @@
+import java.util.*;
+class Practice {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter a Sorted Rotated Array : ");
+        int[] ar = Input.input(sc.nextLine()); // custom Class Input to Enter elements in an array
+
+        System.out.println("Enter a Search Element");
+        int sv = sc.nextInt();
+
+        int pivot = findPivot(ar);
+        System.out.printf("Pivot Element of the Array is %d \n", pivot);
+
+        System.out.println(searchRotated(ar, pivot, sv));
+    }
+    public static int findPivot(int[] ar) {
+
+        int start = 0, end = ar.length, middle;
+
+        if(ar[end - 1] > ar[0]) {
+
+            System.out.println("Array Not rotated");
+            return end - 1;
+        }
+        while(start < end + 1) {
+
+            middle = (start + end) / 2;
+
+            if(ar[middle] > ar[middle + 1]) {
+
+                return middle;
+            }
+            else if(ar[middle] < ar[middle + 1] && ar[middle] < ar[0]) {
+
+                end = middle - 1;
+            }
+            else if(ar[middle] < ar[middle + 1] && ar[middle] > ar[0]) {
+
+                start = middle + 1;
+            }
+        }
+        return -1;
+    }
+    public static int searchRotated(int[] ar, int pivot, int sv) {
+
+        if(sv <= ar[pivot] && sv >= ar[0]) {
+
+            return Arrays.binarySearch(ar, 0, pivot + 1, sv);
+        }
+        else if(sv <= ar[ar.length - 1]) {
+
+            return Arrays.binarySearch(ar, pivot + 1, ar.length, sv);
+        }
+        System.out.println("Element Not Present");
+        return -1;
+    }
+}

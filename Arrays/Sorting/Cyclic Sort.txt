@@ -1,0 +1,33 @@
+import java.util.*;
+
+class Practice extends Input {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        Practice in = new Practice();
+
+        System.out.print("Enter values non repeating between 1 and n in an Array : ");
+        int[] ar = in.input(sc.nextLine());
+
+        int[] sorted = cyclicSort(ar, ar.length);
+        System.out.println(Arrays.toString(sorted));
+    }
+    static int[] cyclicSort(int[] ar, int n) {
+
+        int i = 0;
+        while (i < n) {
+            int correctIndex = ar[i] - 1;
+
+            if (ar[i] != ar[correctIndex]) {
+
+                int temp = ar[i];
+                ar[i] = ar[correctIndex];
+                ar[correctIndex] = temp;
+            }
+            else {
+                i++;
+            }
+        }
+        return ar;
+    }
+}

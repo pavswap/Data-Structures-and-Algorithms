@@ -1,0 +1,73 @@
+import java.util.*;
+
+class Practice extends Input {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        Practice in = new Practice(); // Defined In Class Input(File Name : Input.java)
+
+        System.out.print("Enter a Mountain Array with No Repeating Elements: ");
+        int ar[] = in.input(sc.nextLine());
+
+        System.out.print("Enter the Target Element : ");
+        int target = sc.nextInt();
+
+        int peak = findingPeak(ar);
+
+        if(target == ar[peak]) {
+            System.out.println(peak);
+        }
+        else if(reverseBinarySearch(ar, peak, target) != 0) {
+            System.out.println(reverseBinarySearch(ar, peak, target));
+        }
+        else {
+            System.out.println(Arrays.binarySearch(ar, 0, peak, target));
+        }
+
+    }
+
+    public static int findingPeak(int ar[]) {
+
+        int start = 0, end = ar.length - 1, middle, answer = 0;
+
+        while(start <= end) {
+
+            middle = (start + end) / 2;
+
+            if (ar[middle] > ar[middle + 1] && ar[middle] > ar[middle - 1]) {
+
+                answer =  middle;
+                break;
+            }
+            else if(ar[middle] < ar[middle + 1]) {
+                start = middle + 1;
+            }
+            else if(ar[middle] > ar[middle + 1]) {
+                end = middle - 1;
+            }
+        }
+        return answer;
+    }
+    public static int reverseBinarySearch(int ar[], int peak, int target) {
+
+        int start = peak + 1, end = ar.length - 1, middle, answer = 0;
+
+        while(start <= end) {
+
+            middle = (start + end) / 2;
+
+            if (ar[middle] == target) {
+
+                answer =  middle;
+                break;
+            }
+            if(ar[middle] < target) {
+                end = middle - 1;
+            } else {
+                start = middle + 1;
+            }
+        }
+        return answer;
+    }
+}
+

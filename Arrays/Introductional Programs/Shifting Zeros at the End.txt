@@ -1,0 +1,26 @@
+import java.util.*;
+class parctice
+{
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        System.out.print("Enter the Size of the Array: ");
+        int n=sc.nextInt();
+        System.out.println("Enter Values to the First Array");
+        int ar[]=new int[n];
+        for(int i=0;i<n;i++)
+        {
+            ar[i]=sc.nextInt();
+        }
+        int i=0;
+        while(i<n-1){
+            if(ar[i]==0)
+            {
+                int temp=ar[i];
+                ar[i]=ar[i+1];
+                ar[i+1]=temp;
+            }
+            i++;
+        }
+        System.out.println(Arrays.toString(ar));
+    }
+}

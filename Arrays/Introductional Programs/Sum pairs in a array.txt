@@ -1,0 +1,27 @@
+import java.util.*;
+class parctice
+{
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        System.out.print("Enter the Size of the Array: ");
+        int n=sc.nextInt();
+        System.out.println("Enter Values to the First Array");
+        int ar[]=new int[n];
+        for(int i=0;i<n;i++)
+        {
+            ar[i]=sc.nextInt();
+        }
+        System.out.print("Enter the number for sum pairs: ");
+        int sum_pairs=sc.nextInt();
+        for(int i=0;i<n;i++)
+        {
+            for(int j=i;j<n;j++)
+            {
+                if(ar[i]+ar[j]==sum_pairs)
+                {
+                    System.out.printf("ar[%d](%d)+ar[%d](%d) = %d\n", i, ar[i], j, ar[j], sum_pairs);
+                }
+            }
+        }
+    }
+}

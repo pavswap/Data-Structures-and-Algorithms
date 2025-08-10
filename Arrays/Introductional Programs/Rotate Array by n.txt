@@ -1,0 +1,36 @@
+import java.util.*;
+class Practice {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter the Size of the Array :");
+        int n = sc.nextInt();
+
+        int arr[] = new int[n];
+        for (int i = 0; i < n; i++) {
+
+            arr[i] = sc.nextInt();
+        }
+
+        System.out.print("Enter the Rotation Count : ");
+        int r = sc.nextInt();
+
+        int new_ar[] = new int[n];
+
+        int k = 0;
+        for (int i = r; i < n; i++) {
+
+            new_ar[k] = arr[i];
+            k++;
+        }
+
+        for (int i = 0; i < r; i++) {
+            new_ar[k] = arr[i];
+            k++;
+        }
+
+        System.out.println(Arrays.toString(new_ar));
+    }
+}

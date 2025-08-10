@@ -1,0 +1,36 @@
+import java.util.*;
+class Practice
+{
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        System.out.print("Enter the Size of the Array: ");
+        int n=sc.nextInt();
+        int ar[]=new int[n];
+        for(int i=0;i<n;i++)
+        {
+            System.out.printf("Enter Value for Position %d :", i);
+            ar[i]=sc.nextInt();
+        }
+        for(int i=0;i<n-1;i++)
+        {
+            for(int j=0;j<n-i-1;j++)
+            {
+                if(ar[j+1]<ar[j])
+                {
+                    int temp=ar[j+1];
+                    ar[j+1]=ar[j];
+                    ar[j]=temp;
+                }
+            }
+        }
+        System.out.println(Arrays.toString(ar));
+        int k=0;int ar2[]=new int [n];
+        for(int i=0;i<n;i++)
+        {
+            if(i==0 || ar[i] != ar[i-1]){
+                ar2[k++]=ar[i];
+            }
+        }
+        System.out.println(Arrays.toString(ar2));
+    }
+}
