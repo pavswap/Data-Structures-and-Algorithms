@@ -1,0 +1,41 @@
+class Practice {           // Practice inherits Helper
+
+    public static void main(String[] args) {
+
+        Helper h = new Helper();
+
+        h.hello();
+
+        Practice p = new Practice();
+        p.pracfunc();
+    }
+    void pracfunc() {
+
+    }
+}
+
+class Helper {
+
+    void hello() {
+        System.out.println("Hello");
+
+        Helper ob = new Helper();
+        ob.hello();
+    }
+
+    static void hi() {
+
+        System.out.println("hi");
+    }
+
+    void running_hi() {
+        hi();
+    }
+
+    static void running_hello() {
+
+        Helper ob = new Helper();
+        ob.hello();
+    }
+
+}

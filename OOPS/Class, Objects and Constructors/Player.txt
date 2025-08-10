@@ -1,0 +1,40 @@
+//answer to question 14 :
+
+class Game_character {
+
+    String name;
+    int health;
+    int power;
+
+    Game_character(String name, int health, int power) {
+
+        this.name = name;
+        this.health = health;
+        this.power = power;
+    }
+    Game_character() {
+
+        name = "Warrior";
+        health = 69;
+        power = 12;
+    }
+    void attack() {
+
+        this.health -= 12;
+    }
+}
+class Practice {
+
+    public static void main(String[] args) {
+
+        Game_character paavan = new Game_character("Paavan", 100, 20);
+
+        paavan.attack();
+
+        System.out.printf("""
+                %s
+                %d
+                %d
+                """, paavan.name, paavan.health, paavan.power);
+    }
+}

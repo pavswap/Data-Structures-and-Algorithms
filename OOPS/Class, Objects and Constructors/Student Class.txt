@@ -1,0 +1,31 @@
+class Person {
+
+    String name;
+    int age;
+
+    Person() {
+
+        name = "Default";
+        age = 0;
+    }
+    Person(String name, int age) {
+
+        this.name = name;
+        this.age = age;
+    }
+}
+
+class Practice {
+
+    public static void main(String[] args) {
+
+        Person paavan = new Person();
+
+        paavan.name = "Paavan Swaroop";
+        System.out.println(paavan.name);
+
+        Person sumiran = new Person("Sumiran Swaroop", 27);
+
+        System.out.println(sumiran.name + "\n" + sumiran.age);
+    }
+}

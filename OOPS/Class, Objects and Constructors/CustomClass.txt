@@ -1,0 +1,50 @@
+package Custom;
+
+import java.util.*;
+public class CustomList {
+
+    Scanner sc = new Scanner(System.in);
+
+    int initial_size;
+    int[] list = new int[1000];
+
+    void initialize() {
+
+        for (int i = 0; i < initial_size; i++) {
+
+            list[i] = sc.nextInt();
+        }
+    }
+
+    public void add(int n) {
+
+        list[ initial_size] = n;
+        initial_size++;
+    }
+
+    void remove(int index) {
+
+
+        for (int i = index; i < initial_size; i++) {
+
+            list[i] = list[i + 1];
+        }
+        initial_size--;
+    }
+
+    public void display() {
+
+        for (int i = 0; i < initial_size; i++) {
+
+            System.out.print(list[i] + " ");
+        }
+        System.out.println();
+    }
+
+    public CustomList(int initial_size) {
+
+        this.initial_size = initial_size;
+        initialize();
+    }
+}
+
