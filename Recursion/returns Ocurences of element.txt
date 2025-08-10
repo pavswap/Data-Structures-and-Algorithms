@@ -1,0 +1,31 @@
+import java.util.*;
+class Practice {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter an Array : ");
+        int[] ar = Input.input(sc.nextLine());
+
+        System.out.print("Enter a Search Value : ");
+        int sv = sc.nextInt();
+
+        ArrayList<Integer> list = new ArrayList<>();
+
+        findOccurances(ar, sv, 0, list);
+    }
+    public static void findOccurances(int[] ar, int sv, int i, ArrayList<Integer> list) {
+
+        if(i == ar.length) {
+
+            System.out.println(list);
+            return;
+        }
+        else if(ar[i] == sv) {
+
+            list.add(i);
+        }
+        findOccurances(ar, sv, i + 1, list);
+    }
+}
