@@ -1,5 +1,5 @@
 import java.util.*;
-class Practice {
+class Binary Search_Recursion {
 
     public static void main(String[] args) {
 
@@ -42,4 +42,5 @@ class Practice {
             return binarysearchRecursive(ar, sv, middle + 1, end);
         }
     }
+
 }
