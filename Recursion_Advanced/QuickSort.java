@@ -1,6 +1,6 @@
 import java.util.*;
 
-class Main {
+class QuickSort {
 
     public static void main(String[] args) {
 
