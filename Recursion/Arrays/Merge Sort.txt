@@ -1,0 +1,63 @@
+import java.util.*;
+class Practice {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter an Array : ");
+        int[] ar = Input.input(sc.nextLine());
+
+        System.out.println(Arrays.toString(mergeSort(ar)));
+    }
+    public static int[] mergeSort(int[] ar) {
+
+        if(ar.length == 1) {
+
+            return ar;
+        }
+        int middle = ar.length / 2;
+
+        int[] left = mergeSort(Arrays.copyOfRange(ar, 0, middle));
+        int[] right = mergeSort(Arrays.copyOfRange(ar, middle, ar.length));
+
+        return(merge(left, right));
+    }
+
+    public static int[] merge(int[] left, int[] right) {
+
+        int i = 0, j = 0, k = 0;
+        int[] arr = new int[left.length + right.length];
+
+        while(i < right.length && j < left.length) {
+
+            if(right[i] <= left[j]) {
+
+                arr[k] = right[i];
+                i++;
+                k++;
+            }
+            else if(left[j] <= right[i]){
+
+                arr[k] = left[j];
+                j++;
+                k++;
+            }
+        }
+        while(i < right.length) {
+
+            arr[k] = right[i];
+            i++;
+            k++;
+        }
+        while(j < left.length) {
+
+            arr[k] = left[j];
+            j++;
+            k++;
+        }
+        return arr;
+    }
+}
+
+

@@ -1,0 +1,42 @@
+import java.util.*;
+class Practice {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter an Array : ");
+        int[] ar = Input.input(sc.nextLine());
+
+        int[] answer = selectionSortRecursive(ar, ar.length - 1);
+        System.out.println(Arrays.toString(answer));
+    }
+    static int[] selectionSortRecursive(int ar[], int end) {
+
+        if(end == 0) {
+
+            return ar;
+        }
+
+        int maxindex = findMax(ar, end);
+
+        int swap = ar[maxindex];
+        ar[maxindex] = ar[end];
+        ar[end] = swap;
+
+        return selectionSortRecursive(ar, end - 1);
+    }
+    static int findMax(int[] ar, int end) {
+
+        int max = ar[0], maxindex = 0;
+        for (int i = 1; i <= end; i++) {
+
+            if(ar[i] > max) {
+
+                max = ar[i];
+                maxindex = i;
+            }
+        }
+        return maxindex;
+    }
+}
